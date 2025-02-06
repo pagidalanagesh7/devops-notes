@@ -1,0 +1,455 @@
+Introduction to Linux
+---------------------
+--> Operating system
+--> Open Source
+--> 1991--> Linus Torlvads
+--> Multi tasking and Multi user
+--> Case sensitive OS
+-----------------
+
+1.File commands:
+
+1. ls - List Files and Directories
+Purpose: Lists the contents of a directory.
+
+Syntax: ls [options] [directory]
+
+Examples:
+
+ls - Lists files and directories in the current directory.
+
+ls /home - Lists files and directories in the /home directory.
+
+ls -l - Displays detailed information (permissions, owner, size, etc.).
+
+ls -a - Shows hidden files (files starting with a dot .).
+
+2. cd - Change Directory
+Purpose: Changes the current working directory.
+
+Syntax: cd [directory]
+
+Examples:
+
+cd /home/user - Moves to the /home/user directory.
+
+cd .. - Moves up one directory level.
+
+cd or cd ~ - Returns to the home directory.
+
+3. pwd - Print Working Directory
+Purpose: Displays the full path of the current working directory.
+
+Syntax: pwd
+
+Example:
+
+pwd - Outputs something like /home/user.
+
+4. mkdir - Make Directory
+Purpose: Creates a new directory.
+
+Syntax: mkdir [options] [directory_name]
+
+Examples:
+
+mkdir myfolder - Creates a directory named myfolder.
+
+mkdir -p parent/child - Creates nested directories (parent and child).
+
+5. rmdir - Remove Directory
+Purpose: Deletes an empty directory.
+
+Syntax: rmdir [directory_name]
+
+Example:
+
+rmdir myfolder - Deletes the empty directory myfolder.
+
+6. touch - Create an Empty File
+Purpose: Creates an empty file or updates the timestamp of an existing file.
+
+Syntax: touch [filename]
+
+Example:
+
+touch myfile.txt - Creates an empty file named myfile.txt.
+
+7. cp - Copy Files or Directories
+Purpose: Copies files or directories from one location to another.
+
+Syntax: cp [options] [source] [destination]
+
+Examples:
+
+cp file1.txt file2.txt - Copies file1.txt to file2.txt.
+
+cp -r dir1 dir2 - Recursively copies a directory (dir1 to dir2).
+
+8. mv - Move or Rename Files or Directories
+Purpose: Moves or renames files or directories.
+
+Syntax: mv [options] [source] [destination]
+
+Examples:
+
+mv file1.txt /home/user - Moves file1.txt to /home/user.
+
+mv oldname.txt newname.txt - Renames oldname.txt to newname.txt.
+
+9. rm - Remove Files or Directories
+Purpose: Deletes files or directories.
+
+Syntax: rm [options] [file/directory]
+
+Examples:
+
+rm myfile.txt - Deletes myfile.txt.
+
+rm -r myfolder - Recursively deletes myfolder and its contents.
+
+rm -f file.txt - Forces deletion without confirmation.
+
+10. cat - Concatenate and Display File Content
+Purpose: Displays the contents of a file.
+
+Syntax: cat [filename]
+
+Examples:
+
+cat myfile.txt - Displays the contents of myfile.txt.
+
+cat file1.txt file2.txt - Concatenates and displays multiple files.
+
+11. more and less - View File Content Page by Page
+Purpose: Displays file content one page at a time.
+
+Syntax:
+
+more [filename]
+
+less [filename]
+
+Examples:
+
+more myfile.txt - Displays myfile.txt page by page.
+
+less myfile.txt - Allows scrolling up and down through the file.
+
+12. head and tail - View Beginning or End of a File
+Purpose:
+
+head: Displays the first few lines of a file.
+
+tail: Displays the last few lines of a file.
+
+Syntax:
+
+head [options] [filename]
+
+tail [options] [filename]
+
+Examples:
+
+head -n 5 myfile.txt - Displays the first 5 lines of myfile.txt.
+
+tail -n 10 myfile.txt - Displays the last 10 lines of myfile.txt.
+
+13. chmod - Change File Permissions
+Purpose: Changes the permissions of a file or directory.
+
+Syntax: chmod [permissions] [filename]
+
+Examples:
+
+chmod 755 myfile.txt - Sets read, write, and execute permissions for the owner, and read/execute for others.
+
+chmod u+x myfile.txt - Adds execute permission for the user (owner).
+
+14. chown - Change File Ownership
+Purpose: Changes the owner and group of a file or directory.
+
+Syntax: chown [owner]:[group] [filename]
+
+Example:
+
+chown user:group myfile.txt - Changes the owner to user and group to group.
+
+15. find - Search for Files and Directories
+Purpose: Searches for files and directories based on conditions.
+
+Syntax: find [path] [options] [expression]
+
+Examples:
+
+find /home -name myfile.txt - Searches for myfile.txt in /home.
+
+find . -type f -name "*.txt" - Finds all .txt files in the current directory.
+
+16. grep - Search Text Within Files
+Purpose: Searches for a specific pattern in files.
+
+Syntax: grep [options] [pattern] [filename]
+
+Examples:
+
+grep "hello" myfile.txt - Searches for the word "hello" in myfile.txt.
+
+grep -i "hello" myfile.txt - Case-insensitive search.
+
+17. tar - Archive Files
+Purpose: Compresses or extracts files into/from an archive.
+
+Syntax: tar [options] [archive_name] [files/directories]
+
+Examples:
+
+tar -cvf archive.tar myfolder - Creates an archive named archive.tar from myfolder.
+
+tar -xvf archive.tar - Extracts files from archive.tar.
+
+18. ln - Create Links
+Purpose: Creates hard or symbolic links between files.
+
+Syntax: ln [options] [source] [link_name]
+
+Examples:
+
+ln -s myfile.txt mylink - Creates a symbolic link mylink to myfile.txt.
+-----------------------------------------------------------------------------------
+
+1. Viewing File Content
+These commands allow you to display the contents of a file.
+cat - Concatenate and Display File Content
+•	Purpose: Displays the entire content of a file.
+•	Syntax: cat [filename]
+•	Example:
+ 
+ 
+cat myfile.txt
+Displays the entire content of myfile.txt.
+more - View File Content Page by Page
+•	Purpose: Displays file content one page at a time (scroll forward only).
+•	Syntax: more [filename]
+•	Example:
+ 
+ 
+more myfile.txt
+Press Space to scroll forward and q to quit.
+less - View File Content Interactively
+•	Purpose: Displays file content interactively (scroll forward and backward).
+•	Syntax: less [filename]
+•	Example:
+ 
+ 
+less myfile.txt
+Use Arrow Keys, Page Up, Page Down, and q to quit.
+head - Display the Beginning of a File
+•	Purpose: Displays the first few lines of a file.
+•	Syntax: head [options] [filename]
+•	Example:
+ 
+ 
+head -n 10 myfile.txt
+Displays the first 10 lines of myfile.txt.
+tail - Display the End of a File
+•	Purpose: Displays the last few lines of a file.
+•	Syntax: tail [options] [filename]
+•	Example:
+ 
+ 
+tail -n 5 myfile.txt
+Displays the last 5 lines of myfile.txt.
+________________________________________
+2. Searching Within Files
+These commands help you search for specific content within files.
+grep - Search for Text Patterns
+•	Purpose: Searches for a specific pattern (text or regex) in a file.
+•	Syntax: grep [options] [pattern] [filename]
+•	Examples:
+ 
+ 
+grep "error" myfile.txt
+Searches for the word "error" in myfile.txt.
+ 
+ 
+grep -i "warning" myfile.txt
+Case-insensitive search for "warning".
+ 
+ 
+grep -r "hello" /home/user
+Recursively searches for "hello" in all files under /home/user.
+awk - Pattern Scanning and Processing
+•	Purpose: A powerful tool for processing and analyzing text files.
+•	Syntax: awk [options] 'pattern {action}' [filename]
+•	Examples:
+ 
+ 
+awk '{print $1}' myfile.txt
+Prints the first column of myfile.txt.
+ 
+ 
+awk '/error/ {print $0}' myfile.txt
+Prints lines containing the word "error".
+sed - Stream Editor
+•	Purpose: Edits text in a file or stream (e.g., search and replace).
+•	Syntax: sed [options] 'command' [filename]
+•	Examples:
+ 
+ 
+sed 's/foo/bar/' myfile.txt
+Replaces the first occurrence of "foo" with "bar" in each line.
+ 
+ 
+sed 's/foo/bar/g' myfile.txt
+Replaces all occurrences of "foo" with "bar" in each line.
+________________________________________
+3. Sorting and Filtering File Content
+These commands help you organize and filter file content.
+sort - Sort Lines in a File
+•	Purpose: Sorts lines in a file alphabetically or numerically.
+•	Syntax: sort [options] [filename]
+•	Examples:
+ 
+ 
+sort myfile.txt
+Sorts the lines in myfile.txt alphabetically.
+ 
+ 
+sort -n numbers.txt
+Sorts lines numerically.
+uniq - Remove Duplicate Lines
+•	Purpose: Removes or counts duplicate lines in a file.
+•	Syntax: uniq [options] [filename]
+•	Examples:
+ 
+ 
+uniq myfile.txt
+Removes consecutive duplicate lines.
+ 
+ 
+sort myfile.txt | uniq -c
+Counts the occurrences of each line.
+cut - Extract Specific Columns or Fields
+•	Purpose: Extracts specific columns or fields from a file.
+•	Syntax: cut [options] [filename]
+•	Examples:
+ 
+ 
+cut -d',' -f1 myfile.csv
+Extracts the first column from a CSV file (using , as the delimiter).
+ 
+ 
+cut -c1-5 myfile.txt
+Extracts the first 5 characters of each line.
+________________________________________
+4. File Comparison
+These commands help you compare the contents of files.
+diff - Compare Two Files
+•	Purpose: Compares two files line by line.
+•	Syntax: diff [file1] [file2]
+•	Example:
+ 
+ 
+diff file1.txt file2.txt
+Displays differences between file1.txt and file2.txt.
+cmp - Compare Two Files Byte by Byte
+•	Purpose: Compares two files byte by byte.
+•	Syntax: cmp [file1] [file2]
+•	Example:
+ 
+ 
+cmp file1.txt file2.txt
+Stops at the first difference between file1.txt and file2.txt.
+________________________________________
+5. File Statistics
+These commands provide information about file content.
+wc - Word Count
+•	Purpose: Counts lines, words, and characters in a file.
+•	Syntax: wc [options] [filename]
+•	Examples:
+ 
+ 
+wc myfile.txt
+Displays the number of lines, words, and characters in myfile.txt.
+ 
+ 
+wc -l myfile.txt
+Displays only the number of lines.
+________________________________________
+6. File Editing
+These commands allow you to edit file content.
+nano - Simple Text Editor
+•	Purpose: A beginner-friendly text editor.
+•	Syntax: nano [filename]
+•	Example:
+ 
+ 
+nano myfile.txt
+Opens myfile.txt in the nano editor.
+vi or vim - Advanced Text Editor
+•	Purpose: A powerful text editor for advanced users.
+•	Syntax: vim [filename]
+•	Example:
+ 
+ 
+vim myfile.txt
+Opens myfile.txt in the vim editor.
+________________________________________
+7. Redirection and Piping
+These techniques allow you to process file content dynamically.
+Redirection (>, >>, <)
+•	Purpose: Redirects input/output to or from files.
+•	Examples:
+ 
+ 
+echo "Hello" > myfile.txt
+Writes "Hello" to myfile.txt (overwrites existing content).
+ 
+ 
+echo "World" >> myfile.txt
+Appends "World" to myfile.txt.
+ 
+ 
+cat < myfile.txt
+Uses myfile.txt as input for the cat command.
+Piping (|)
+•	Purpose: Sends the output of one command as input to another.
+•	Example:
+ 
+ 
+cat myfile.txt | grep "error"
+Displays lines from myfile.txt containing the word "error".
+
+------------------------------------------------------------------------
+
+
+
+
+----------------------------------------------------------------
+
+clear
+-----
+
+The clear command in Linux is used to clear the terminal screen. It removes all previous output and gives you a clean, empty screen to work with.
+
+
+
+uname
+—-----
+
+The uname command in Linux is used to display system information. It provides details about the operating system, kernel version, hardware architecture, and more.
+
+
+man [manual pages]
+-----
+The man command in Linux is used to display the manual pages for other commands, programs, and system calls. It's a helpful way to access documentation directly from the terminal.
+
+
+man -f grep
+
+[ec2-user@ip-172-31-92-64 ~]$ man -f cat
+cat (1)              - concatenate files and print on the standard output
+
+
+man ls
