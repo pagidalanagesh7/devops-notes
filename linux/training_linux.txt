@@ -1,0 +1,185 @@
+history
+---------
+
+The history command in Linux is used to display a list of commands that have been entered in the current shell session. It can be extremely useful for recalling previous commands, debugging, or re-running tasks without having to retype everything.
+
+
+Display all history: history
+Clear history: history -c
+Display last N commands: history N
+Search history: history | grep <command>
+Run the last command: !!
+Run a specific command by line number: !<line_number>
+Run command that starts with a string: !<string>
+Delete the command for specific number: history -d 500
+
+-----------------
+
+sudo su –
+-----------
+switch to root user
+
+How to switch to normal user ec2-user?
+
+exit
+
+
+
+who
+---
+
+Shows who is logged on the system along with their login details.
+
+id
+--
+
+Provides more detailed information about the user, including user ID (UID), group ID (GID), and group memberships.
+
+
+groups
+------
+
+Displays the groups that the current user belongs to.
+-----------------------
+
+mkdir 
+------
+
+The mkdir command in Linux is used to create new directories. It's a straightforward but essential command for organizing files within the filesystem. 
+
+
+
+mkdir four
+mkdir -v five -->[mkdir: created directory 'five']
+mkdir one two three 
+mkdir one/two/three  → two no such file or directory
+mkdir -p one/two/three
+mkdir "kk funda"
+mkdir -m 755 public
+--------------
+
+ls
+—
+
+The ls command in Linux (and Unix-like systems) is used to list the contents of a directory. It shows files, directories, and other file system objects in a specified directory or the current working directory if no directory is specified.
+
+
+ls
+ 
+ls -l  [Long Listing Format]
+ls -a  [All files]
+ls -lh [Human readable format]
+ls -r  [Reverse Order]
+ls -t [Sort by time]
+ls -R: List files and directories recursively.
+ls -i [inode: DS and store the file and dir information]
+
+
+ASC order 
+
+[ec2-user@ip-172-31-92-64 nagteja]$ ls -l
+total 0
+drwxr-xr-x. 3 ec2-user ec2-user 18 Feb  8 14:26 four
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:24 one
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:30 public
+drwxr-xr-x. 3 ec2-user ec2-user 20 Feb  8 14:28 ten
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:26 three
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:26 two
+
+[ec2-user@ip-172-31-92-64 nagteja]$ ls -l | sort -k9
+total 0
+
+drwxr-xr-x. 3 ec2-user ec2-user 18 Feb  8 14:26 four
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:24 one
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:30 public
+drwxr-xr-x. 3 ec2-user ec2-user 20 Feb  8 14:28 ten
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:26 three
+drwxr-xr-x. 2 ec2-user ec2-user  6 Feb  8 14:26 two
+
+-----------------
+
+cd
+—
+cd Documents
+cd /
+cd one/two/three
+cd ../home
+cd ../..
+
+cd or cd ~ —> Directly move to home directory 
+
+absolute path: /home/user/documents
+relative path: documents/demo
+
+cd -  —> current to previous and previous to current
+
+
+
+touch 
+------- 
+Used to create an empty file.
+touch demo.txt
+touch one two three
+---------------------------------
+
+rmdir 
+------ 
+rmdir test → empty directory only
+
+rm 
+—
+The rm command is used to remove files and directories, regardless of whether they are empty or not.
+
+rm file_name
+rm -rf directory_name
+
+
+
+vi 
+–
+The vi command is a powerful and widely used text editor in Linux and Unix-like operating systems
+
+save:
+
+dont save:
+
+
+
+
+
+
+cat 
+—-
+
+The cat command in Linux is used to concatenate and display the contents of files.
+
+
+cat jayesh.txt
+cat file1 file2
+cat * --> this command will shot all text files data in your current child
+cat -n file_name --> this command will show your file series wise
+cat > newfile_name  —> create a new file add content to this, ctrl+D
+cat >> existfile.txt
+
+>file.txt  —> Nullify the file
+
+cat app1.log app2.log > merged_file.txt  —> Override
+cat file_name1 >> file_name2 —-> append
+
+
+tac file_name
+
+cp : It will copy file contents and dir to one dir to another dir
+—-
+ 
+cp devops.txt DevOps/
+cp -R Python DevOps/
+
+Requirement: How to copy all the java file to dir
+
+
+
+mv [renaming and moving one dir to another dir]
+—-
+mv python.txt devops.txt
+mv DevOps/ Python/

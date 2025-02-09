@@ -423,7 +423,87 @@ Displays lines from myfile.txt containing the word "error".
 
 ------------------------------------------------------------------------
 
+User Management in Linux
+User management in Linux involves creating, modifying, and deleting user accounts and groups to control access to the system. This ensures security and proper resource allocation.
 
+1. Types of Users in Linux
+Linux has three main types of users:
+
+Root User (UID 0): The superuser with full system access.
+Regular Users (UID 1000+ by default): Normal users with limited permissions.
+System Users (UID 1–999): Used by system services (e.g., www-data, nobody).
+2. User Account Files
+Key files that store user information:
+
+/etc/passwd – Stores user account details (username, UID, GID, home directory, shell).
+/etc/shadow – Stores encrypted user passwords.
+/etc/group – Stores group-related information.
+/etc/sudoers – Controls sudo (privileged access).
+
+3. Managing Users
+
+a. Creating Users
+Create a new user: useradd -m -s /bin/bash username
+-m: Creates a home directory.
+-s /bin/bash: Sets the default shell.
+Set a password for the user: passwd username
+Create a user with additional options: useradd -m -d /custom/home -s /bin/zsh -G sudo username
+-d /custom/home: Custom home directory.
+-G sudo: Adds user to the sudo group.
+
+b. Modifying Users
+Change the username: usermod -l newname oldname
+Change the home directory: usermod -d /new/home username
+Add user to a group: usermod -aG groupname username
+Lock a user account: usermod -L username
+Unlock a user account: usermod -U username
+
+c. Deleting Users
+Delete a user but keep files: userdel username
+Delete a user and their home directory: userdel -r username
+4. Managing Groups
+a. Creating and Deleting Groups
+Create a group: groupadd groupname
+Delete a group: groupdel groupname
+b. Adding Users to Groups
+Add a user to a group: usermod -aG groupname username
+Remove a user from a group: gpasswd -d username groupname
+List groups of a user: groups username
+5. Permission & Access Control
+a. File Permissions
+Linux uses Owner-Group-Others permissions.
+
+View file permissions: ls -l filename
+Example output:
+-rw-r--r-- 1 user group 1234 Feb 5 10:00 file.txt
+
+rw- (Owner) → Read, Write
+r-- (Group) → Read-only
+r-- (Others) → Read-only
+Change file ownership: chown newowner:newgroup filename
+
+Change file permissions: chmod 755 filename
+
+7 (Owner: Read + Write + Execute)
+5 (Group: Read + Execute)
+5 (Others: Read + Execute)
+b. Sudo Privileges
+Give a user sudo access: usermod -aG sudo username
+Edit sudoers file (be careful!): visudo
+Add a line:
+username ALL=(ALL) ALL
+6. User Account Information
+Check currently logged-in user: whoami
+List all users: cat /etc/passwd
+List all groups: cat /etc/group
+See user details: id username
+7. Switching Users
+Switch to another user: su - username
+Run a command as another user: sudo -u username command
+
+
+Conclusion
+User management in Linux ensures security, access control, and efficient resource allocation. By understanding how to add, modify, and delete users and groups, as well as manage permissions, you can effectively control access to your Linux system.
 
 
 ----------------------------------------------------------------
