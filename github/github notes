@@ -1,0 +1,824 @@
+DAY1 
+====
+
+What is github?
+-----------------
+
+distributed version control and source code management (SCM) functionality of Git.
+
+
+Examples for communicators?
+
+→ Teams, Slack, skype for business, etc
+
+
+Source code management tools list
+—---------------------------------
+Github
+Bitbucket
+Gitlab
+
+Svn[sub version]
+TVS
+CFS
+
+
+
+ADMINSTRATION
+=============
+
+
+step 1: create a github account
+
+    mail id: kkeducationblr@gmail.com
+
+    pwd: P@a
+
+    uname: kkeducation1234567
+
+    public url:                   https://github.com/
+
+    enterprise edition:           https://airtel.github.com/ 
+
+
+
+
+step 2: login into github
+
+
+step 3: create an organization
+
+
+  org name: bsnl-4g-test
+
+  kkeducationblr@gmail.com(x), prasanth@bsnl.com (x),  service account mail : devops4g@bsnl.com
+
+
+
+
+
+
+
+
+step 4: create a repository
+
+
+   private: https://github.com/bsnl-4g-test/testing-private-repo
+
+   public repo: https://github.com/bsnl-4g-test/testing-public-repo
+
+
+step 5: create a team
+
+
+    dev : bsnl-dev-team
+
+    DevOps : bsnl-DevOps-Team
+
+
+
+step 6: add users to team(dev, DevOps, SRE, QA, DB, etc)
+
+
+step 7: give repo access to team..
+
+
+conversion: public <---> private
+
+
+step 8: deleted user, team, repo, org
+
+
+DAY 2
+-----
+
+Git commands
+—-----------------
+
+step 0: pls install gitbash
+Step 1: check the version of git
+   git --version or git -v
+
+Step 2: In desktop , create jio folder.  [cd onedrive/desktop]
+Step 3: git init  [create a empty local repo]
+Step 4:  ls -la
+Step 5: cd .git , ls -lrth
+Step 6: cd ..
+
+------------------------------------
+
+The `.git` folder is a crucial component of any Git repository, whether it's hosted on **GitHub**, GitLab, Bitbucket, or used locally. Here’s what it does and why it's important:
+
+---
+
+### **What is the `.git` Folder?**
+- The `.git` folder is a **hidden directory** inside every Git repository.
+- It contains all the metadata and objects necessary for Git to track changes, manage branches, and store history.
+- When you run `git init` in a directory, Git creates this folder to start tracking the project.
+
+---
+
+### **What’s Inside the `.git` Folder?**
+1. **HEAD**  
+   - Points to the currently checked-out branch.
+   - Example: `ref: refs/heads/main` means you are on the `main` branch.
+
+2. **config**  
+   - Stores repository-specific configurations (e.g., remote URL, user name, and email).
+
+3. **objects/**  
+   - Stores all Git objects (commits, trees, blobs, etc.).
+   - These are compressed versions of files, making Git efficient.
+
+4. **refs/**  
+   - Stores references to branches (`refs/heads/`), remote branches (`refs/remotes/`), and tags (`refs/tags/`).
+
+5. **logs/**  
+   - Contains logs of all actions performed (like switching branches or commits).
+
+6. **index**  
+   - Stores the staging area (what will be included in the next commit).
+
+7. **hooks/**  
+   - Contains scripts that run at specific events (like `pre-commit`, `post-commit` hooks).
+
+8. **packed-refs**  
+   - Stores a compressed version of references to optimize performance.
+
+---
+
+### **Use of `.git` Folder in GitHub**
+Even though the `.git` folder exists in your local repository, it plays a role when working with **GitHub**:
+
+1. **Tracking Changes Locally**  
+   - Before pushing to GitHub, all changes, commits, and branches are stored inside `.git`.
+
+2. **Pushing to GitHub (`git push`)**  
+   - When you push changes, Git sends data from the `.git` folder to GitHub.
+
+3. **Fetching from GitHub (`git fetch`)**  
+   - Git downloads new changes from the remote repository and updates the `.git` metadata.
+
+4. **Cloning a Repository (`git clone`)**  
+   - When you clone a repository from GitHub, Git downloads the `.git` folder along with the project files.
+
+5. **Branching and Merging**  
+   - All branch information is stored in `.git/refs/heads/`.
+
+---
+
+### **What Happens If You Delete `.git`?**
+If you delete the `.git` folder, the repository loses:
+- Commit history
+- Branch information
+- Remote tracking
+- All Git-related operations
+
+The folder must be **restored** or the repository must be reinitialized using `git init` to track changes again.
+
+Would you like help in troubleshooting `.git` issues or recovering lost history? 🚀
+
+
+
+
+
+------------------------------------
+
+Why DevOps Engineer required git?
+—--------------------------------
+Ans: As a DevOps Engineer , we need to write few scripts, YAML files.
+
+IDE [Integrated Development Environment]
+----
+Eclipse
+Myeclipse
+Intellij
+Netbeans
+VS code
+Pycharm
+Atom
+
+Untracked files:
+Working area              staging area                 local repo
+—----------------         —-------------              —-----------
+Billing.java—----------->                  —---------->
+Test.java   [git add . ]                    git commit -m “msg”
+
+
+
+git status
+—--------
+To see the status of files
+
+Vi Test3.java
+
+Before commit
+-------------
+
+git config --global --list  —-> Too see the uname and mail id.
+
+git config --global user.name "kkdevopsonline"
+git config --global user.email  "prasanthdevops123@gmail.com"
+
+
+→git add .
+→git add *
+→ git add Filename1 Filename2
+—> git add *.java
+—> git add *.py
+
+
+How to see the commit history?
+
+→ git log 
+→ git log -2  [To see the last 2 commits] or git log -n 2
+
+
+
+How to see many repos are mapped?
+
+git remote -v --> to see the alias name
+
+How to connect to a remote repository?
+
+→ git remote add jio(aliase name) <repo url>
+→ git remote add jio https://github.com/kkdevopsonline/test.git
+
+→ git push jio master
+
+NOTE: Generate a PAT(Personal Access Token) : https://github.com/settings/profile -->https://github.com/settings/apps -->https://github.com/settings/personal-access-tokens   
+
+
+IQ: Is it possible to remove alias name?
+Ans: Yes
+
+     git remote remove jio
+
+  
+
+
+IQ] How to move files from working area to local repo directly?
+
+ANS: git commit -a -m “updated code”
+NOTE: for new file it is not possible
+
+IQ: Where the credentials are stored ?
+Ans: for windows → credentials manager
+         For MAC     —> KeyChainAccess
+
+IQ: How many files committed for one commit how to see?
+
+ANS: git show commit_id
+   —>    git show --pretty="" --name-only 93bc19a84166ce6ff1ad4e230f990ca05caf0150 [use this in real time]
+
+
+DAY 3
+-----
+
+what is the diff between git add . and git add * ?
+
+IQ: How to remove the working area files?
+ANS:  git clean -n [ It will display what are the files are to be deleting]
+         git clean -f [Forcefully we are deleting]
+NOTE: only new files will be deleted, Not Modified one.
+
+git clean command is a powerful tool in Git that helps you remove untracked files and directories from your working directory. This can be particularly useful when you want to clean up your workspace and remove files that are not being tracked by Git.
+
+-------------------
+
+IQ: Is it possible to move files from stg area to working area?
+ ANS: git reset [all files will be moved.
+          git reset <filename> [only particular file will move]
+
+IQ: Due to your bad commit , application is not working, pls revert back the changes How?
+
+git revert <commit id>   —> It will delete all changes in local repo only not in the remote repo.
+
+IQ: How to delete an updated code in remote repo?
+      
+       Already we deleted updated code in my local, Now you can push all files.
+    git push jio-dev master
+
+IQ: what is the diff b/w git reset and git revert?
+
+Git reset —> stg to working
+Git revert → from new commit, it will delete new file and updated contents in another file.
+
+
+What is a .gitignore file?
+
+If you are not interested to move any file, Then keep that file name inside .gitignore file
+
+
+How many environments?
+—--------------------------------
+
+Dev branch —> development
+Stg branch  —-> QA
+Master branch      —-> prod
+Release branch —-----> prod
+Feature branch  
+
+
+NOTE: By default we have master branch, we are not suppose to push code directly into the master branch.
+
+git branch —-> List the branches, create, delete and rename the branches.
+
+How to list branch names?
+
+git branch
+
+How to  create a branch?
+
+git branch <branch name>
+
+How to switch from one branch to another branch?
+
+git checkout <branch name>
+
+
+DAY 4
+=====
+
+How many environments?
+—--------------------------------
+
+Dev branch —> development
+Stg branch  —-> QA
+Master branch      —-> prod
+Release branch —-----> prod
+Feature branch  
+
+
+NOTE: By default we have master branch, we are not suppose to push code directly into the master branch.
+
+git branch —-> List the branches, create, delete and rename the branches.
+
+How to list branch names?
+
+git branch
+
+How to  create a branch?
+
+git branch <branch name>
+
+How to switch from one branch to another branch?
+
+git checkout <branch name>
+
+Explain the merging concept
+=======================
+
+Step 1: go to development branch from master, git checkout development.
+  NOTE: By default all the files of master branch moved to development branch becz we created dev branch from master branch.
+
+Step 2: Take one file and update in the dev branch and do the commit.
+
+Step 3: come back to master and check the file is updated or not, It will not updated.
+
+Step 4: from master —> git diff development
+Step 5: from master —> git merge development
+Step 6: see the file is merged or not.
+
+
+What is merge conflict?
+
+When two developers are updating same file and same line, Then we are getting merge conflict.
+
+Step 1: update the file in master branch and commit the changes.
+
+Step 2: update the same file in development branch and commit the changes.
+
+Step 3: goto master , apply git merge development
+
+Step 4: remove the unused lines and then commit the changes.
+
+
+How to switch a branch, while creating it self?
+
+Git checkout -b stage
+
+How to push all branches from local repo to remote repo?
+
+Git push <alis name> branch1 branch2
+Git push <alias name> –all
+
+How to create a branch in a remote repo?
+
+Ans: Go and create in remote repo
+
+
+How to get updated code from remote branch?
+
+Git pull <alias name> branch name
+
+How to see the remote branches?
+
+Git branch -r
+
+
+How to see all the branches(local and remote)?
+
+Git branch -a
+
+
+
+How to rename branch?
+
+git branch -m old new
+
+How to delete a branch in local repo?
+
+Git branch -d <branchname>  —-> Current pointing branch will not be deleted.
+
+
+How to delete remote repo branch from local?
+
+Git push <alisas name>  : <branch name>
+
+
+
+DAY 5
+=====
+
+What is the diff b/w branch and tag?
+Branch
+—-------
+Mutable
+Creating while development going on
+Creating the branches from another branches also.
+Git branch [list the branches]
+Git branch <name>   [to create a branch]
+Git push aliasName Branchname
+Git push aliasName --all
+Git branch -d branchname
+
+
+Tag
+—-
+Immutable
+Creating after production deployment
+Creating  a tag mainly from master branch
+Git tag [List the tags]
+Git tag tagName [create a tag]
+Git push alias tagName
+Git push aliasName --tags
+Git tag -d tagname
+
+Step 1: git tag
+Step 2: git tag Airtel_V1.0.0[major, minor, patch] —-> create it from master.
+Step 3: git tag
+Step 4: git push airtel Airtel_V1.0.0
+
+NOTE: tag files always showing in zip and tar
+
+
+IQ: How to create a tag in remote repository?
+
+Goto tag→create release —> create a tag —-> ……..
+
+
+Git stash
+—---------
+
+When we are working on one task on dev branch, Immediately we got an issue in prod(master), we need to switch.
+
+Step 1: take the working area backup of dev.
+     
+            git stash save “login feature”
+Step 2: see the list of backup.
+ 
+            Git stash list  → stash@{0}, stash@{1} —--
+
+Step 3: go to master branch and finish the work and come back.
+
+Step 3: use the backup to get the data.
+      Git stash apply stash@{1}
+
+
+
+
+
+
+IQ: In my local repo , size is increasing , How to proceed to reduce that?
+
+Ans: Need to delete all stash files which are not using.
+  
+Git stash drop —-> by default recent will be deleted.
+Git stash drop stash@{5} —> specific one deletion.
+
+NOTE: git stash pop [apply and delete]
+
+git stash clear  —> delete all the stashes at once
+
+
+
+
+
+How to restore the working area changes?
+
+step 1: wrongly updated file in working area.
+
+step 2: git restore <fileName>
+
+
+DAY 6
+=====
+
+
+Git Merging strategy
+====================
+
+
+1. Fast-Forward Merge:
+
+
+Description: In a fast-forward merge, Git simply moves the pointer of the target branch forward to include the commits of the source branch. This happens when the target branch hasn't diverged since the source branch was created.
+Scenario:
+Assume we have a repository where master branch is the main branch and a feature branch was created from master. During the development on feature branch, no new commits were made to master.
+Diagram:
+Before Fast-Forward Merge:
+mathematica
+Copy code
+      A --- B --- C  (master)
+           \
+            D --- E  (feature)
+After Fast-Forward Merge (git merge feature):
+mathematica
+Copy code
+      A --- B --- C --- D --- E  (master, feature)
+Explanation:
+Here, commits D and E from feature branch are simply added to the master branch in a linear fashion, as there were no new commits on master after branching off feature.
+
+
+
+
+2. Recursive Merge (Three-Way Merge): [ORT merge strategy]
+
+
+Description: Recursive merge (three-way merge) is used when changes have occurred on both the source (feature) and target (master) branches since they diverged. Git analyzes the changes and creates a new merge commit to reconcile the differences.
+Scenario:
+Suppose both master and feature branches have diverged with new commits.
+Diagram:
+Before Recursive Merge:
+mathematica
+Copy code
+      A --- B --- C  (master)
+           \
+            D --- E  (feature)
+After Recursive Merge (git merge feature):
+mathematica
+Copy code
+      A --- B --- C --------- M  (master)
+           \               /
+            D --- E ------   (feature)
+
+Explanation:
+Git creates a new merge commit M that combines the changes from both branches (master and feature). Commits D and E are merged with master, preserving the history of both branches.
+
+
+
+3. Merge with a Specific Strategy:
+
+Description: Git allows specifying merge strategies (ours, theirs, octopus, etc.) to influence how conflicts are resolved or how multiple branches are merged.
+Scenario:
+Consider a scenario where you want to merge feature branch into master, but you want to resolve conflicts by favoring changes from master.
+Diagram:
+Before Merge with ours Strategy:
+css
+Copy code
+      A --- B --- C  (master)
+           \
+            X --- Y  (feature)
+After Merge with ours Strategy (git merge -s recursive -X ours feature):
+css
+Copy code
+      A --- B --- C --------- M  (master)
+           \               /
+            X --- Y ------   (feature)
+Explanation:
+Here, merge strategy -X ours resolves conflicts by favoring changes from master. Git creates a merge commit M that incorporates changes from both branches, but any conflicting changes are resolved in favor of master.
+
+
+4. Merge and Rebase:
+
+Description: While not strictly a merging technique, rebasing is an alternative approach to integrating changes from one branch (feature) into another (master). Rebase moves the entire branch onto a new base (typically the latest commit of master), rewriting the commit history.
+Scenario:
+Suppose you have a feature branch with several commits that you want to incorporate into master without creating a merge commit.
+Diagram:
+Before Rebase:
+css
+Copy code
+      A --- B --- C  (master)
+           \
+            X --- Y --- Z  (feature)
+After Rebase (git rebase master while on feature branch):
+css
+Copy code
+      A --- B --- C --- X' --- Y' --- Z'  (master, feature)
+Explanation:
+Rebase moves the commits X, Y, and Z from feature branch on top of the latest commit (C) of master. This results in a linear history where the commits from feature branch (X', Y', Z') appear sequentially after C.
+
+
+
+
+
+Git cherry-pick
+=============
+It will help us to merge only particular commits.
+
+
+
+Git clone command
+—----------------
+The git clone command in Git is used to create a copy of an existing Git repository. This command not only copies the repository but also sets up a connection to the remote repository so that you can pull down updates and push your changes back to the original repository if you have the appropriate permissions.
+
+Step 1:  create a folder in Desktop
+Step 2: go inside that folder
+Step 3: Git clone <url>  -> Along with code, git config also will come
+Step 4: crate a staging branch, go there and start work .
+
+NOTE: default alias name origin
+
+git remote -v
+
+
+
+Git pull and git fetch
+=======================
+
+By using this commands , we will get an updated code from remote repo.
+
+
+
+Git fetch
+—---------
+Git fetch —> local repo —> git merge —> working area
+EX: git fetch origin test
+     Git merge origin/test
+
+
+Git pull
+—--------
+Git fetch + git merge.
+
+EX: Git pull origin test
+
+
+IQ: I want to change the recent commit message how?
+ANS:
+    git commit --amend -m "New commit message"
+    git commit --amend —> editor will open
+    git push --force —> push to remote to update the name
+
+git best practices
+==================
+
+--> Don't commit your code in middle of work
+
+--> commit your code, once everything is ready
+
+--> Test your code before you commit 
+
+--> Give proper commit messages.
+
+
+   "JIRA_ID: change message"
+    165: updated pom.xml
+
+--> avoid the merge conflicts [connect with team]
+
+--> avoid the bind merging [always raise PR]
+
+--> closely monitor the branches, If any branch is not requires pls delete that branch with proper approvals from lead.
+
+--> Delete the stashes if  not required.
+
+
+DAY 7
+------
+
+where the cretentials will store?
+
+windows: credential manager
+
+
+SSH KEYS
+=========
+
+How to generate ssh_keys?
+
+ssh-keygen  
+
+~/.ssh/
+Id_rsa → private key
+Id_rsa.pub —> public key
+
+How to change algorithm ?
+
+ssh-keygen -t dsa
+Id_dsa
+Id_dsa.pub
+
+Explain the process how to generate?
+—---------------------------------------------------
+Step 1: ls -la ~/.ssh/ —-> check generated or not
+Step 2: display cat ~/.ssh/known_hosts
+Step 3: rm -rf ~/.ssh/known_hosts
+Step 4: ssh-keygen —-> pls check if it is different , pls change with below command, delete existing one
+Step 5: ssh-keygen -t rsa
+Step 6: ssh-keygen -t rsa -f ~/.ssh/my_rsa_key  # Generates "my_rsa_key" and "my_rsa_key.pub" —--> Generates based on custom name.
+step 7: cat ~/.ssh/id_rsa.pub —-> Take the content.
+ste p 8:  click on profile→ settings → SSH and GPG keys—-> New ssh key—> paste the key —> save
+Step 9: verify connection is established or not from your local to remote
+
+   ssh -T git@github.com
+
+It will ask yes , becz we deleted known_hosts.
+
+
+Step 10: Go to the project folder and run the git remote -v
+      [ It is pointing to HTTPS]
+
+Step 11: git remote add sshurl git@github.com:jio-5g-india/Airtel-5g.git
+
+Step 12: go and delete git hub credentials[ credentials manager / keychainaccess]
+
+step 13: push the code now
+      Git push <AN> <BranchName>
+
+
+Branching strategy
+==================
+
+
+IQ: I am in a stage branch, how to create a branch(uat) from master without switch?
+ANS: stage> git checkout -b uat master
+
+
+Pull Request(PR)
+================
+
+readme.md file
+==============
+
+
+git best practices
+==================
+
+--> Don't commit your code in middle of work
+
+--> commit your code, once everything is ready
+
+--> Test your code before you commit 
+
+--> Give proper commit messages.
+
+
+   "JIRA_ID: change message"
+    165: updated pom.xml
+
+--> avoid the merge conflicts [connect with team]
+
+--> avoid the bind merging [always raise PR]
+
+--> closely monitor the branches, If any branch is not requires pls delete that branch with proper approvals from lead.
+
+--> Delete the stashes if  not required.
+
+
+
+Branching strategy
+------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
